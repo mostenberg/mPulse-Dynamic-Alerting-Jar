@@ -1,15 +1,15 @@
 # mPulse-Dynamic-Alerting-Jar
 Uses mPulse API to query mPulse data and compare web performance of two user-defined time periods. Output is an HTML file showing diff between two time periods, as well as XML file which can be read by Jenkins. Allows for automated check of performance after build and configuration changes to live.
 
-##Usage: 
+## Usage: 
 ###Needed Values:
   mPulse API Key: Login to mPulse and open the configuration for the mPulse app in question. You will see the API key there.
   mPulse API token: Login to mPulse and go to 'Central->My Settings-> Generate Token' to create  your mPulse API token
   
-###Execution
+### Execution
 java -jar DynamicAlerting.jar baselineStartDate=-2weeks baselineEndDate=-2days baselineMultiplier=1.1 testStartDate=-3hours testEndDate=now globalThreshold=100 apiToken=<mPulseAPIToken> allowedPercentOfPageGroupsFailing=20.0 minMeasurements=10 name="mPulse Demo" apiKey=<mPulseAPIToken> tenantName="SOASTA SE Demo"
   
-###Command line arguments:
+### Command line arguments:
 	baselineStartDate=<dateFormat> - The start date for the period to derive your baseline from
 	baselineEndDate=<dateFormat> -   The end  date for the period to derive your baseline from.
 	baselineDomain=<domain> - The domain to measure for your baseline. Note: This requires you to setup a custom dimension called 'subDomain' in your application.
@@ -34,7 +34,7 @@ java -jar DynamicAlerting.jar baselineStartDate=-2weeks baselineEndDate=-2days b
 		   queryModification=page-groups?country=US&   - this will filter to just US as the country.
 		   queryModification=browsers?country=US&page-group=shop-category&    - This will show response times of all browsers from the US for the pageGroup of 'shop-category'
 	
-###Date Formats accepted:  
+### Date Formats accepted:  
 		MM/DD/YYYY - A specific date. If no time is specified, assumed midnight at the START of that date
 		hh:mmAM-MM/DD/YY - A date and time. For example:  baselineStartDate=3:00PM-08/01/2015
 		-Xdays - A relative time from right now. For instance, -3days sets time at midnight 3 days ago
@@ -43,7 +43,7 @@ java -jar DynamicAlerting.jar baselineStartDate=-2weeks baselineEndDate=-2days b
 		-Xminutes - A relative time from right now going back 'X' minutes
 		now - Current time.
    
-###Threshold Description:
+### Threshold Description:
 		Thresholds are evaluated as follows:
 		  If a manual threshold was set for a specific pageGroup, that value takes precedence
 		  If a baselineMultiplier and baselineStartDate and baseLineEndDate was set (and no manual threshold) then the dynamic value will be calculated and used.
