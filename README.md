@@ -2,9 +2,11 @@
 Uses mPulse API to query mPulse data and compare web performance of two user-defined time periods. Output is an HTML file showing diff between two time periods, as well as XML file which can be read by Jenkins. Allows for automated check of performance after build and configuration changes to live.
 
 ## Usage: 
-###Needed Values:
-  mPulse API Key: Login to mPulse and open the configuration for the mPulse app in question. You will see the API key there.
-  mPulse API token: Login to mPulse and go to 'Central->My Settings-> Generate Token' to create  your mPulse API token
+### Needed Values:
+  #### mPulse API Key: 
+  	Login to mPulse and open the configuration for the mPulse app in question. You will see the API key there.
+  #### mPulse API token:
+  	Login to mPulse and go to 'Central->My Settings-> Generate Token' to create  your mPulse API token
   
 ### Execution
 java -jar DynamicAlerting.jar baselineStartDate=-2weeks baselineEndDate=-2days baselineMultiplier=1.1 testStartDate=-3hours testEndDate=now globalThreshold=100 apiToken=<mPulseAPIToken> allowedPercentOfPageGroupsFailing=20.0 minMeasurements=10 name="mPulse Demo" apiKey=<mPulseAPIToken> tenantName="SOASTA SE Demo"
